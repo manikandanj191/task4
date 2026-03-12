@@ -1,0 +1,499 @@
+//1. Functions (1–6)
+//1 Create a function greetUser(name) that prints 'Welcome to Stackly, {name}'
+
+function greatuser(name){
+
+    console.log(name , "mani")
+}
+greatuser ("welcome to stackly")
+
+//2 Create a function calculateSalary(basic, bonus) and return the total salary.
+
+function calculateSalary(basic, bonus){
+   return basic + bonus
+ 
+}
+
+let total = calculateSalary(10000, 2000)
+ console.log("total salary is " , total ) 
+
+ //3 Create a function checkEvenOdd(num) that returns 'Even' or 'Odd'.
+
+ function checkEvenOdd(num){
+
+if (num % 2 ==0){
+    return "even"
+
+ } else{
+    return "odd"
+ }
+}
+ let check = checkEvenOdd(10)
+
+console.log(check)  // even
+
+
+//4 Create a function findMax(a,b,c) that returns the largest number.
+
+function findMax(a,b,c){
+   
+    if   ( a>b && a>c) {
+        return a
+    }
+    if  (b>c && b>a){
+        return b
+    }
+    if (c>a && c>b){
+        return c
+    }
+
+}
+
+let val = findMax(10,15,5)
+
+console.log(val) 
+
+// 5 Create a function calculateGST(price) that returns price + 18% GST.
+
+function calculateGST(price){
+   return price + (price * 18 / 100)
+}
+
+let pri =  calculateGST(200)
+console.log(pri) 
+
+//6 Create a function login(username,password) that checks if username = 'admin' and password ='1234'.
+
+function login(username,password) {
+    if ((username === "admin") && (password ==="1234")){
+    return "true"
+    } else {
+        return "login fail"
+    }
+
+
+}
+
+let ori = login("admin","134")
+console.log(ori) //login fail
+
+
+//2. Default Parameters (7–9)
+
+// 1 Create a function createEmployee(name, role='Trainee') and print employee details.
+
+    function createEmployee(name, role="Trainee") {
+     return "employer name : " + name + "role :"+ role
+    }
+    let deta = createEmployee("santosh  ")
+
+console.log(deta)
+
+//2 Create a function calculateDiscount(price, discount=10).
+
+
+function calculateDiscount(price, discount=10) {
+return price - (price * 10 / 100)
+}
+
+let pric = calculateDiscount(2000)
+console.log(pric )  //1800
+
+//3 Create a function orderFood(item, quantity=1).
+
+function orderFood(item, quantity=1){
+    return item + " = "+ quantity
+}
+
+let food = orderFood("biryani")
+console.log(food)   //biryani = 1
+
+//3. Scope (10–12)
+
+// 1 Create a variable company = 'Stackly' outside a function and access it inside a function.
+
+let company = "Stackly"
+
+function company1(){
+    console.log(company)
+  
+}
+
+company1()
+
+
+//2 Create a block using if(true) and test var, let, const scope behavior.
+
+
+
+if(true){
+var mark = "pass"
+}
+ console.log(mark) //// can acces outside . var is global scope
+
+// if (true){
+//     let mark1 = "pass"
+
+// }
+//  console.log(mark1)   // cant acces outside . let is block scope
+
+//  if (true){
+//     const mark2 = "pass"
+//  }
+// console.log(mark2)    // cant acces outside . const is block scope
+
+
+
+//3 Create a function where a variable inside the function cannot be accessed outside.
+
+// function small (){
+//     let vari = 22
+// }
+// small()
+// console.log(vari)
+
+
+//4. Hoisting (13–15)
+
+// 1 Print a variable before declaring using var and observe output.
+
+console.log (man)
+var man = "mani"    // undefined
+
+
+//2 Try printing let variable before declaration and check error.
+
+// console.log (name1)
+// let name1 = "manik"   //ReferenceError: Cannot access 'name1' before initialization
+
+
+//3 Create a function call before function declaration and observe behavior.
+
+
+call ()
+
+function call(){
+
+    console.log ("it is declared")
+}                                              //it is declared"
+
+
+
+//5. Function Types (16–18)
+
+// 1 Write a named function that prints 'Named Function Example'.
+
+function namedFunction() {
+console.log ("Named Function Example")
+} 
+ namedFunction()
+
+
+ // 2 Write an anonymous function stored in a variable to multiply two numbers.
+
+
+let multiply = function multi(c, d){
+    return c * d
+
+}
+
+let result = multiply(10, 10)
+console.log (result)                        //100
+
+//3 Write an arrow function that returns square of a number.
+
+let arrow = (an) => {
+    return an*an
+
+    
+}
+
+let result1 = arrow(2)
+console.log (result1)           //4
+
+
+// 6. Callback & Higher Order Functions (19–22)
+
+//1 Create a function processData(callback) and call the callback.
+
+function processData(callback) {
+console.log ("first")
+callback ()
+}
+
+function callback(){
+    console.log ("second")
+}
+
+processData(callback)
+
+//2 Create a function calculate(a,b,operation) where operation is callback for add/sub.
+
+function calculate(a,b,operation) {
+    
+     console.log (a+b)
+    operation (30, 40)
+}
+
+function sub (ad, ae) {
+    console.log (ad - ae)
+}
+
+calculate(10,20,sub)
+
+//3 Create a callback function that prints 'Task Completed' after a calculation.
+
+function task (name, age, group){
+group (1, 2)
+
+}
+
+function biology (af, ag){
+    console.log ("Task Completed")
+}
+
+task ("aji", 28, biology)
+
+//4 Create a function that accepts a callback and prints user data.
+
+function user(filee){
+    filee()
+}
+
+function data (){
+     console.log ("admin = manikandan , password = 1234")
+}
+
+user (data)
+
+//7. Currying (23–24)
+
+// 1 Create a curried function add(a)(b)(c) that returns sum.
+
+function add1 (a){
+    return function (b){
+        return function (c){
+
+            console.log(a+b+c)
+        }
+    }
+}
+
+add1(5) (6) (7)                 //18
+
+//2 Create a curried function multiply(a)(b)(c).
+
+function mul (a){
+    return function (b){
+        return function (c){
+
+              console.log(a*b*c)
+
+        }
+    }
+
+}
+mul (3)(4)(4)     //48
+
+
+//8. IIFE (25–26)
+
+// 1 Write an IIFE that prints 'Website Loaded'.
+
+//   (function (){
+//    console.log("website loaded")
+// }) ()
+
+
+//2 Create an IIFE that calculates discount price of a product.
+
+// (function pr(price){
+
+// let discount = price*70/100
+
+// console.log(discount)
+
+// }) (70)
+
+//9. Generator Functions (27–28)
+
+// 1 Create a generator that yields 3 random discount coupons.
+
+function* gen (){
+    yield "20 % offer"
+     yield "40 % offer"
+      yield "60 % offer"
+}
+
+let valu = gen()
+
+ console.log(valu.next())
+  console.log(valu.next())
+   console.log(valu.next())
+
+
+   //2 Create a generator that yields 3 motivational messages for developers.
+
+   function* dev(){
+    yield "we will achieve"
+    yield " everything takes time"
+    yield "nothing is impossible"
+   }
+   let moti = dev()
+   console.log(moti.next())
+     console.log(moti.next())
+      console.log(moti.next())
+
+      //10. Spread Operator (29–31)
+
+// 1 Merge two arrays [1,2,3] and [4,5,6] using spread.
+
+let arr1 = [1,2,3] 
+let arr2 = [4,5,6]
+
+let total1 = [...arr1, ...arr2]
+ console.log(total1)     //[1 2 3 4 5 6]
+
+ //2 Clone an array [10,20,30] using spread operator.
+
+ let arr4 = [10,20,30]
+
+ let total7 = [...arr4]
+
+ console.log(total7) 
+
+ //3 Merge two objects: {name:'John'} and {role:'Developer'}.
+
+ let obj1 = {name:"John"}
+ let obj2 = {role:"Developer"}
+
+ let tot = { ...obj1, ...obj2}
+
+  console.log(tot) 
+
+  //11. Rest Operator (32–34)
+
+// 1 Create a function sumAll(...numbers) that returns total sum.
+
+function rest (a, b, ...c){
+
+      console.log(a+b+c[0]+c[1]+c[2])
+    
+
+}
+
+rest (1,2,3,4,5)
+
+// Create a function that prints first argument and rest arguments separately.
+
+function argument4(first, ...last){
+
+     console.log("first argument" , first)
+      console.log("last argument", last)
+
+}
+
+argument4(1,2,3,4,5,6)
+
+//3 Create a function that accepts multiple product prices and returns total bill.
+
+function bill (...product){
+
+    let val =0
+
+    for (let p of product){
+        val = val + p
+    }
+    return val
+
+}
+
+
+
+let sum = bill(20, 40, 80)
+
+console.log(sum)
+
+//12. Destructuring (35–38)
+
+// 1 Destructure array [10,20,30,40] into variables.
+
+let arr = [10,20,30,40]
+
+let [b1, b2, b3, b4] = arr
+
+console.log (b1)
+console.log (b2)
+console.log (b3)
+console.log (b4)
+
+//2 Destructure object {name:'Naveen', role:'Developer', salary:40000}.
+
+obj2 = {name:"Naveen", role:"Developer", salary:40000}
+
+let {name, role, salary} = obj2
+
+
+console.log (name)
+console.log (role)
+console.log (salary)
+
+//3 Extract first and last element from array using destructuring.
+
+array2 = [22, 33, 44, 55, 66]
+
+let [c1, , , , c5] = array2
+
+
+console.log (c1)
+console.log (c5)
+
+//4 Destructure nested array [1,2,[3,4]].
+
+let nes = [1,2,[3,4]]
+
+let [d, e, [f,g]] = nes
+
+
+console.log (d,e,f,g)
+
+
+//13. Array Manipulation (39–40)
+
+// 1 Create an array [1,2,3,4,5] and perform push, pop, shift, unshift.
+
+let po = [1,2,3,4,5] 
+
+po.pop()
+
+console.log (po)  // [1,2,3,4]  last value removed
+
+let shif =  [1,2,3,4,5] 
+
+shif.shift()
+
+console.log (shif) // 2,3,4,5   first value removed 
+
+
+let unshi =  [1,2,3,4,5] 
+
+unshi.unshift(0,3)
+
+
+console.log (unshi)   //0, 3, 1, 2, 3, 4, 5    add first values
+
+
+let pus =  [1,2,3,4,5] 
+
+pus.push(6, 7)
+
+console.log (pus)    // 1, 2, 3, 4, 5, 6, 7   add last values
+
+
+//2 Use splice() to replace 40,50 with 4,5 in [1,2,3,40,50,6].
+
+let spl = [1,2,3,40,50,6]
+
+spl.splice(3,2,4,5)
+
+console.log (spl) //1,2,3,4,5,6  (//index, //delete count, //adding values) 
